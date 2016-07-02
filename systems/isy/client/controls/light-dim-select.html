@@ -1,0 +1,8 @@
+<div layout layout-margin>                     
+    <md-select ng-model="deviceCtrl.device.level" flex="auto" aria-label="Fan Level" 
+        ng-change="deviceCtrl.setLightLevel()">
+        <md-option ng-repeat="level in [0,25,50,75,100]" value="{{level}}">
+            {{deviceCtrl.config.name}} {{level|lightlevel}}
+        </md-option>
+    </md-select>
+</div>

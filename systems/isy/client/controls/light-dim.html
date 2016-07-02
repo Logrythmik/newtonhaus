@@ -1,0 +1,13 @@
+<div layout-gt-xs="row" layout="column"> 
+    <md-switch flex-gt-xs="{{deviceCtrl.device.power?'40':'auto'}}" flex="{{deviceCtrl.device.power?'100':'auto'}}" ng-model="deviceCtrl.device.power" aria-label="{{deviceCtrl.config.name}}"
+        ng-change="deviceCtrl.toggleLight()">
+        <h4>{{deviceCtrl.config.name}}</h4>
+    </md-switch>
+    <md-slider flex-gt-xs="60" flex="100" min="0" max="99" step="3" ng-show="deviceCtrl.device.power"
+        ng-model="deviceCtrl.device.level" aria-label="Brightness" class="md-primary"
+        ng-change="deviceCtrl.setLightLevel()">
+        <md-tooltip md-direction="up" md-autohide="true">
+            {{deviceCtrl.config.level}}
+        </md-tooltip>
+    </md-slider>
+</div>

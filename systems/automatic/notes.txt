@@ -1,0 +1,176 @@
+{
+  "id": "f61ba3d5-a68e-43eb-a731-0db871b4d3a3",
+  "user": {
+    "id": "U_ffd955ba63db5c25",
+    "url": "https://api.automatic.com/user/U_ffd955ba63db5c25/"
+  },
+  "type": "trip:finished",
+  "created_at": "2015-04-12T17:45:18.123Z",
+  "time_zone": "America/Los_Angeles",
+  "location": {
+    "lat": 37.757076,
+    "lon": -122.448120,
+    "accuracy_m": 10,
+    "created_at": "2015-04-12T17:45:01.123Z"
+  },
+  "vehicle": {
+    "id": "C_507d6f1bd6d9b855",
+    "url": "https://api.automatic.com/vehicle/C_507d6f1bd6d9b855/"
+  },
+  "device" : {
+    "id": "021ac91c826b12eca99e685c"
+  },
+  "trip": {
+    // Trip Object (matches REST API)
+  }
+}
+
+
+//EXAMPLE TRIP FINISHED OBJECT WEBHOOK
+{
+  "id": "f61ba3d5-a68e-43eb-a731-0db871b4d3a3",
+  "user": {
+    "id": "2fcd8161801e95d1e615",
+    "v2_id": "U_ffd955ba63db5c25"
+  },
+  "type": "trip:finished",
+  "created_at": 1383448450201,
+  "time_zone": "America/Los_Angeles",
+  "location": {
+    "lat": 37.757076,
+    "lon": -122.448120,
+    "accuracy_m": 10
+  },
+  "vehicle": {
+    "id": "C_8e7b567626c26695",
+    "year": "2001",
+    "make": "Acura",
+    "model": "MDX",
+    "color": "#d15fed",
+    "display_name": "My Speed Demon"
+  },
+  "device" : {
+    "id": "021ac91c826b12eca99e685c"
+  },
+  "trip": {
+    "id": "T_8e7b567626c26695",
+    "start_location": {
+      "name": "Ashbury St, SF, CA",
+      "display_name": "Home",
+      "lat": 37.7692903,
+      "lon": -122.4465469,
+      "accuracy_m": 5,
+      "ts": 1383448450201,
+      "city": "San Francisco",
+      "country": "US",
+      "state": "CA",
+      "street_name": "Ashbury",
+      "street_number": "464"
+    },
+    "start_time": 1383448450201,
+    "start_time_zone": "America/Los_Angeles",
+    "end_location": {
+      "name": "5th St, SF, CA",
+      "display_name": "Work",
+      "lat": 37.78270046281092,
+      "lon": -122.4064556183999,
+      "accuracy_m": 100,
+      "ts": 1383449950201,
+      "city": "San Francisco",
+      "country": "US",
+      "state": "CA",
+      "street_name": "5th",
+      "street_number": "201"
+    },
+    "end_time": 1383449950201,
+    "end_time_zone": "America/Los_Angeles",
+    "path": "uioeFxycjVxDMvAGBjATlJXrLaIZHvCFhCHpCaI^i@@",
+    "distance_m": 6573.416666666661,
+    "hard_accels": 0,
+    "hard_brakes": 1,
+    "duration_over_80_s": 0,
+    "duration_over_75_s": 2,
+    "duration_over_70_s": 3,
+    "fuel_cost_usd": 1.0428111627932486,
+    "fuel_volume_gal": 0.2465857561582522,
+    "average_mpg": 16.56434586845349,
+    "idling_time_s": 78.47,
+    "score_events": 33.67,
+    "score_speeding": 40.19,
+    "city_fraction": 0.45,
+    "highway_fraction": 0.55,
+    "night_driving_fraction": 0
+  }
+}
+
+// REST / SOCKET VERSION
+TRIP
+{
+  "url": "https://api.automatic.com/trip/T_5ecb5afa2422d3d8/",
+  "id": "T_5ecb5afa2422d3d8",
+  "driver": "https://api.automatic.com/user/U_de0cf1b496008d9b/",
+  "user": "https://api.automatic.com/user/U_de0cf1b496008d9b/",
+  "started_at": "2015-03-20T00:53:43.969000Z",
+  "ended_at": "2015-03-20T01:43:36.738000Z",
+  "distance_m": 16219.4,
+  "duration_s": 2992.8,
+  "vehicle": "https://api.automatic.com/vehicle/C_9aa0f0e09383666c/",
+  "start_location": {
+    "lat": 33.95235,
+    "lon": -118.38511,
+    "accuracy_m": 3.9
+  },
+  "start_address": {
+    "name": "5862 Arbor Vitae Street, Los Angeles, CA 90045, USA",
+    "display_name": "Arbor Vitae St, LA, CA",
+    "street_number": "5862",
+    "street_name": "Arbor Vitae St",
+    "city": "LA",
+    "state": "CA",
+    "country": "US"
+  },
+  "end_location": {
+    "lat": 34.08308,
+    "lon": -118.3659,
+    "accuracy_m": 9
+  },
+  "end_address": {
+    "name": "667 North Crescent Heights Boulevard, Los Angeles, CA 90048, USA",
+    "display_name": "N Crescent Heights Blvd, LA, CA",
+    "street_number": "667",
+    "street_name": "N Crescent Heights Blvd",
+    "city": "LA",
+    "state": "CA",
+    "country": "US"
+  },
+  "path": "_kfnE|aqqUAka@?aFBmDAuB}B?eN@wH@oL?iB@{@C[MUOOO}AcCaAsBUm@qD}LkEgOkBp@uAVsA?e@Ei@I{@WeBk@cBa@a@GmBGsBIkAEm@?}B?QLiECeDBcTAeC?cB@OKyA?yF?wD?qBD_FLyK\\sTr@uBByACyAM}@MkAYo@QeGuBQM{Ai@qBq@uCs@gB[oBQ{BEeD?_CJ{K|@_Ff@mAXuBx@mVdLaGfDyBl@_BT}DVkDPsCHwVi@aBB_AH}AZoBn@mFdBgBTm@DsA@m@AoAOiAUmA_@oHeDuBy@iAWcAMoAEqCCG?QH_BCuFKgHUgIMaEM_KQcGKo@Wc@E{@QyBi@_IoCuJkDgEuA_Cy@{CcAm@M_@IeBEoBRiA\\kB|@iDhBk@R}@Tu@DoA?UCgBk@{Bw@mCw@_Bo@eIgCcD}@sHwAaNaCeEs@sA@mBEgASgOmFeLcEgFgBgBs@qMmF{DcBeBs@qAc@[E}B?eACuI?eD?KjB{@fPaDYyE]_@Ao@Fe@PuDzBeC~Aq@Vi@Hm@BqD?_RHoC?w_@AmHB",
+  "fuel_cost_usd": 1.92,
+  "fuel_volume_l": 2.1,
+  "average_kmpl": 7.7,
+  "average_from_epa_kmpl": 9.4,
+  "score_events": 47.7,
+  "score_speeding": 50,
+  "hard_brakes": 0,
+  "hard_accels": 1,
+  "duration_over_70_s": 0,
+  "duration_over_75_s": 0,
+  "duration_over_80_s": 0,
+  "vehicle_events": [
+    {
+      "type": "hard_accel",
+      "lat": 33.97642,
+      "lon": -118.37013,
+      "created_at": "2015-03-20T01:06:36.547000Z",
+      "g_force": 0.3
+    }
+  ],
+  "start_timezone": "America/Los_Angeles",
+  "end_timezone": "America/Los_Angeles",
+  "city_fraction": 1,
+  "highway_fraction": 0,
+  "night_driving_fraction": 0,
+  "idling_time_s": 37,
+  "tags": [
+    "business"
+  ]
+}

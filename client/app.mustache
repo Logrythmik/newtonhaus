@@ -1,0 +1,127 @@
+{{=[[ ]]=}}
+<!doctype html>
+<html lang="en" 
+    ng-app="newtonMausApp" 
+    ng-controller="nhApp as app"  
+    mani-fest="app.appcache">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//material.angularjs.org/HEAD/angular-material.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="/app.css">
+    <title>[[config.title]]</title>
+    <style type="text/css">
+        [ng-cloak],.ng-cloak,[aria-hidden=true] { display: none !important; }
+    </style>
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/icons/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/icons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body layout="column" ng-cloak >
+    
+   <div flex class="md-whiteframe-z2">            
+        <div ng-if="!app.auth.isAuthenticated" layout layout-padding layout-align="center center">            
+            <md-card flex-gt-xs="40" flex class="md-raised" layout-padding>
+                <h1>[[config.title]]</h1>
+                <p>You shall not pass (unauthenticated)</p>
+                <md-button flex class="md-primary md-raised" ng-click="app.login()" >LOGIN</md-button>
+            </md-card>            
+        </div>
+        <md-toolbar ng-show="app.auth.isAuthenticated" layout="row" layout-wrap>
+            <div class="md-toolbar-tools"  ng-cloak>              
+                <ng-md-icon icon="more_horiz"
+                    ng-if="!app.$mdSidenav('left').isOpen()" 
+                    ng-click="app.$mdSidenav('left').open()"></ng-md-icon>
+                <ng-md-icon icon="more_vert"
+                    ng-if="app.$mdSidenav('left').isOpen()" 
+                    ng-click="app.$mdSidenav('left').close()"></ng-md-icon>
+                <ng-md-icon ng-click="app.refresh()" icon="refresh"></ng-md-icon>
+                <div ng-repeat="device in app.config.devices">
+                    <nh-device config="device"></nh-device>        
+                </div>
+                <h1 flex>[[config.title]]</h1>
+                <h1>{{app.auth.profile.nickname}}</h2>
+                <ng-md-icon icon="logout" ng-click="app.logout()" aria-label="Log Off"></ng-md-icon>
+             </div>
+        </md-toolbar>
+        <md-content ng-show="app.auth.isAuthenticated" layout="row">
+            <md-sidenav flex class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+                <md-toolbar class="md-toolbar-tools" layout="row">
+                    <h1 flex>Settings</h1>
+                    <ng-md-icon icon="close" 
+                        ng-click="app.$mdSidenav('left').close()"
+                        aria-label="Close"></ng-md-icon>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <div ng-repeat="system in app.config.systems">
+                        <h3>{{system.title}}</h3>
+                        <div ng-include="system.partial"></div>
+                    </div>                    
+                </md-content>
+            </md-sidenav>     
+            <md-tabs flex md-dynamic-height md-border-bottom md-selected="app.selectedTab" md-autoselect md-stretch-tabs="always" 
+                md-swipe-content="true">
+                <md-tab label="{{tab.name}}" aria-label="{{tab.name}}" ng-repeat="tab in app.config.tabs"
+                    md-on-select="app.onTabSelected($index)">                    
+                    <md-card class="md-raised" layout-padding ng-repeat="section in tab.sections">
+                        <md-card-title ng-if="section.name">
+                            <md-card-title-text>
+                                <span class="md-headline">{{section.name}}</span>
+                            </md-card-title-text>
+                        </md-card-title>   
+                        <div layout="row" layout-gt-md="{{section.layout}}" layout-wrap>
+                            <nh-device config="device" class="device"                                   
+                                flex-gt-md="{{device.flex||'auto'}}" flex="auto"
+                                ng-repeat="device in section.devices"></nh-device> 
+                        </div>
+                    </section>
+                </md-card>     
+            </md-tabs>
+        </md-content>
+    </div>
+   
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+    <script src="//material.angularjs.org/HEAD/angular-material.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Auth0 -->
+    <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
+    <script src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+    <script src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+    <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
+    <script src="/app.js"></script>
+    <script>
+       window.auth0 = {
+            domain: '[[config.auth0.domain]]',
+            clientID: '[[config.auth0.clientID]]'
+       };
+    </script>
+  
+</body>
+
+</html>

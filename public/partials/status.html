@@ -1,0 +1,8 @@
+<div>
+    <ng-md-icon icon="{{config.icon}}" 
+        ng-click="set()" title="{{config.name}}"
+        ng-show="state.meetsExpectations" style="fill:#fff"></ng-md-icon>
+    <ng-md-icon icon="{{config.icon_open}}" 
+        ng-click="set()" title="{{config.name}}"
+        ng-hide="state.meetsExpectations" style="fill:red"></ng-md-icon>
+</div>

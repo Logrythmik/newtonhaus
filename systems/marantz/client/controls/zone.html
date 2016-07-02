@@ -1,0 +1,56 @@
+<div flex layout-wrap layout-gt-sm="row">
+    <div flex="100" flex-gt-sm="50" layout>
+        <md-menu flex layout >
+            <md-button flex aria-label="menu" class="md-raised" ng-class="{'md-primary':zoneCtrl.zone.power}" 
+                ng-click="zoneCtrl.openMenu($mdOpenMenu,$event)">
+                <!--ng-md-icon icon="{{zoneCtrl.getInputIcon(zoneCtrl.zone.input, true)}}" style="fill:#fff"></ng-md-icon-->
+                <span md-menu-origin>
+                    {{zoneCtrl.zone.name}}&nbsp;
+                    <span ng-show="zoneCtrl.zone.power">{{zoneCtrl.zone.input}}</span>
+                </span>
+            </md-button>
+            <md-menu-content width="4" >
+                <md-menu-item ng-show="zoneCtrl.zone.power">
+                    <md-button aria-label="Turn Off" layout 
+                        ng-click="zoneCtrl.setPower(false)">
+                        <ng-md-icon icon="settings_power" flex="25" aria-label="Turn Off"></ng-md-icon>
+                        Turn Off
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item ng-show="!zoneCtrl.zone.power && zoneCtrl.id>1">
+                    <md-button aria-label="Turn On Same" layout
+                        ng-click="zoneCtrl.setPower(true);zoneCtrl.setInput('SOURCE')">
+                        <ng-md-icon icon="expand_less" flex="25" aria-label="Turn Off"></ng-md-icon>
+                        Mirror {{zoneCtrl.receiver.zones['1'].name}}
+                    </md-button> 
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item ng-repeat="input in zoneCtrl.receiver.inputs|filter:{enabled:true}">
+                    <md-button aria-label="{{input.friendly}}" layout
+                        ng-click="zoneCtrl.setPower(true);zoneCtrl.setInput(input.name)">
+                        <ng-md-icon icon="{{zoneCtrl.getInputIcon(input.name)}}" flex="25" aria-label="{{input.friendly}}"></ng-md-icon>
+                        {{input.friendly}}
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>     
+    </div>
+    <div flex="100" flex-gt-sm="50" layout="row" ng-show="zoneCtrl.zone.power">
+        <md-slider flex md-discrete min="-80" max="18" step="3" 
+            ng-model="zoneCtrl.zone.volume" aria-label="Volume" class="md-primary"
+            ng-change="zoneCtrl.setVolume()">
+        </md-slider>
+        <div flex="8" flex-gt-sm="10">
+            <md-button aria-label="Mute" class="md-raised md-fab md-mini" 
+                ng-show="!zoneCtrl.zone.mute" 
+                ng-click="zoneCtrl.setMute(true)">
+                <ng-md-icon icon="volume_up"></ng-md-icon>
+            </md-button>
+            <md-button aria-label="Un Mute" class="md-raised md-fab md-mini" 
+                ng-show="zoneCtrl.zone.mute"
+                ng-click="zoneCtrl.setMute(false)">
+                <ng-md-icon icon="volume_off"></ng-md-icon>
+            </md-button>
+        </div>                
+    </div>
+</div>

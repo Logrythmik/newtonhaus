@@ -1,0 +1,16 @@
+ <div flex layout> 
+    <md-button aria-label="Close" flex  class="md-raised md-warn" 
+        ng-show="deviceCtrl.device.power" ng-disabled="deviceCtrl.doing"
+        ng-click="deviceCtrl.close()">
+        {{deviceCtrl.config.name}} is
+        <span ng-show="deviceCtrl.doing">{{deviceCtrl.doing}}</span>   
+        <span ng-show="!deviceCtrl.doing">Open</span>  
+    </md-button>
+    <md-button aria-label="Open" flex class="md-raised" 
+        ng-show="!deviceCtrl.device.power" ng-disabled="deviceCtrl.doing"
+        confirm-click="deviceCtrl.open()">
+        {{deviceCtrl.config.name}} is
+        <span ng-show="deviceCtrl.doing">{{deviceCtrl.doing}}</span>   
+        <span ng-show="!deviceCtrl.doing">Closed</span> 
+    </md-button>
+</div>

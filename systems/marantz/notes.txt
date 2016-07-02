@@ -1,0 +1,16 @@
+Inputs Types:
+{
+	"FM": 		"radio",
+	"CD": 		"album",
+	"PHONO":	"surround_sound",
+	"M-XPORT": 	"settings_input_svideo",
+	"NET": 		"settings_ethernet",
+	"DVD": 		"album",
+	"BD": 		"cast",
+	"TV": 		"tv",
+	"SAT/CBL": 	"dvr",
+	"GAME": 	"games",
+	"AUX": 		"settings_input_composite",
+	"MPLAY": 	"equalizer",
+	"iPod/USB": "usb"
+}

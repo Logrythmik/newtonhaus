@@ -1,0 +1,62 @@
+{
+  "name": "newtonmaus",
+  "version": "1.0.0",
+  "description": "The remote control to the newtonhaus",
+  "main": "index.js",
+  "repository": {
+    "type": "hg",
+    "url": "https://bitbucket.org/JasonWicker/newtonmaus"
+  },
+  "scripts": {
+    "test": "mocha",
+    "build:deps": "npm install",
+    "build:js": "browserify.cmd ./client/app.js -t babelify --outfile ./public/app.js",
+    "build:css": "./node_modules/.bin/lessc.cmd  ./client/app.less ./public/app.css",
+    "build:assets": "npm run build:js && npm run build:css",
+    "build": "npm run build:deps && npm run build:assets",
+    "dev:watch:systems": "watch-run -s -p \"./systems/**/*.js\" -- npm run build:js",
+    "dev:watch:js": "watch-run -s -p \"./client/**/*.js\" -- npm run build:js",
+    "dev:watch:css": "watch-run -s -p \"./client/**/*.less\" -- npm run build:css",
+    "dev:watch": "parallelshell \"npm run dev:watch:js\"  \"npm run dev:watch:css\" \"npm run dev:watch:systems\"",
+    "start": "node index.js --harmony-destructuring",
+    "start:dev": "parallelshell \"npm run dev:watch\"  \"npm run start\""
+  },
+  "author": "Brian Stark & Jason Wicker",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^10.2.6",
+    "chai": "^3.5.0",
+    "jshint": "^2.9.1",
+    "less": "~2.5.3",
+    "mocha": "^2.4.5",
+    "mustache": "^2.2.1",
+    "parallelshell": "~2.0.0",
+    "watch-run": "~1.2.4"
+  },
+  "dependencies": {
+    "alexa-app": "^2.3.2",
+    "angular": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "backo2": "^1.0.2",
+    "body-parser": "^1.15.0",
+    "component-bind": "^1.0.0",
+    "component-emitter": "^1.2.0",
+    "express": "^4.13.4",
+    "express-jwt": "^3.3.0",
+    "isy-js": "^0.4.2",
+    "lodash": "^3.10.1",
+    "moment": "^2.13.0",
+    "mustache-express": "^1.2.2",
+    "node-schedule": "^1.0.0",
+    "react": "^0.13.3",
+    "socket.io": "^1.3.5",
+    "socket.io-client": "^1.4.5",
+    "socketio-jwt": "^4.3.4",
+    "telnet-client": "^0.7.0",
+    "twilio": "^2.9.0",
+    "unirest": "^0.4.2",
+    "xml2js": "^0.4.15",
+    "yargs": "^3.31.0"
+  }
+}

@@ -1,0 +1,17 @@
+<div flex layout>
+    <md-button aria-label="Lock" flex class="md-raised md-warn" 
+        ng-if="!deviceCtrl.device.power"  ng-disabled="deviceCtrl.doing"
+        ng-click="deviceCtrl.lock()">
+        {{deviceCtrl.config.name}} is
+        <span ng-show="deviceCtrl.doing">{{deviceCtrl.doing}}</span>                
+        <span ng-show="!deviceCtrl.doing">Unlocked</span> 
+    </md-button>
+    <md-button aria-label="Unlock" flex class="md-raised" 
+        ng-if="deviceCtrl.device.power"  ng-disabled="deviceCtrl.doing"
+        confirm-click="deviceCtrl.unlock()" confirm-message="Confirm Unlock">
+        {{deviceCtrl.config.name}} is
+        <span ng-show="deviceCtrl.doing">{{deviceCtrl.doing}}</span>                
+        <span ng-show="!deviceCtrl.doing">Locked</span>
+    </md-button>
+</div>
+

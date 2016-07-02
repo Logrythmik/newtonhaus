@@ -1,0 +1,7 @@
+ <div layout>
+    <md-button ng-class="{'md-primary':deviceCtrl.device.power}" class="md-raised"
+        aria-label="{{deviceCtrl.config.name}}" flex title="{{deviceCtrl.device.power|power}}"
+        ng-click="deviceCtrl.setLight(!deviceCtrl.device.power)">
+        {{deviceCtrl.config.name}} 
+    </md-button>
+</div>   

@@ -1,0 +1,18 @@
+<md-card ng-style="variableCtrl.display.style">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline" ng-if="variableCtrl.display.text">
+                <span class="pull-right" ng-if="variableCtrl.display.icon" >
+                    <ng-md-icon icon="{{variableCtrl.display.icon}}"></ng-md-icon>
+                </span>            
+                {{variableCtrl.display.text}}
+            </span>
+            <span class="md-subhead">
+                <span class="pull-left" ng-if="variableCtrl.config.icon" >
+                    <ng-md-icon icon="{{variableCtrl.config.icon}}"></ng-md-icon>
+                </span>   
+                {{variableCtrl.config.name}}
+            </span>
+        </md-card-title-text>        
+    </md-card-title>
+</md-card>

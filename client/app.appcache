@@ -1,0 +1,39 @@
+CACHE MANIFEST
+
+#version 1.0 1-26-2016
+
+CACHE:
+
+#images
+
+
+#internal HTML documents
+
+
+#style sheets
+http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic
+/app.css
+https://material.angularjs.org/HEAD/angular-material.min.css
+
+
+#style sheet images
+https://s3.amazonaws.com/assets.auth0.com/w2/img/bg-transp.png
+
+#javascript files
+https://cdn.auth0.com/client/9Tz2I2DUrgOKMjUYA0pgYgXUMyGRo7DP.js?t1453874446110
+http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js
+http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js
+http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js
+http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js
+http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js
+https://material.angularjs.org/HEAD/angular-material.min.js
+http://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js
+/socket.io/socket.io.js
+http://cdn.auth0.com/js/lock-8.2.min.js
+http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js
+http://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js
+http://cdn.auth0.com/w2/auth0-angular-4.js
+/app.js
+
+NETWORK:
+*
