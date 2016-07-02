@@ -1,7 +1,7 @@
 # newtonMaus
 Live control for home automation using a plugin-system for devices and systems.
 This solution relies heavily on events and commands. The only communication channel 
-is via websockets.
+is via websockets. Angular Material design for the remote. Up and running in minutes.
 
 # Dependencies
 * AngularJs
