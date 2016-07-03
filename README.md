@@ -23,25 +23,26 @@ is via websockets. Angular Material design for the remote. Up and running in min
 * Twilio
 
 # Major Features
+
+## Customizable Web App
+Easily configure a responsive web-app (remote control) with flex-box based material buttons and controls based on Google's material design.
+
+## Declarative Monitored States with monitoring endpoint
+Monitor device states to provide notifications when devices meet rules, like if any door
+is unlocked. Also, built-in endpoints for 3rd party monitoring services.
+
+## Declarative Event & Command Relay system
+An expression tree to build IFTT-like workflows that react to conditions and rules and raise further
+commands or execute functions. Build complex rules, like open the garage door as I drive up, but
+only if I am in the car and started the trip somewhere else. Get notifications when doors open or a garage is left open.
+
 ## Declarative Scheduled Jobs
 Use cron expressions to send out commands or events at any interval.
 Add conditions to the jobs, so they only work under certain criteria, like
 if it's raining, make sure the windows are closed.
 
-## Declarative Monitored States with monitoring endpoint
-Monitor device states to provide notifications when devices meet rules, like if any door
-is unlocked. Also, built in endpoints for 3rd party monitoring services.
-
-## Declarative Event->Command Relay system
-An expression tree to build IFTT-like workflows that react to conditions and rules and raise further
-commands or execute functions. Build complex rules, like open the garage door as I drive up, but
-only if I am in the car and started the trip somewhere else.
-
-## Customizable Web App
-Easily configure the client with flex-box based material buttons and controls based on Google's material design.
-
 ## Directive Based UI
-Make simple controls for the devices, you 
+Make simple controls for the devices you want. Easily implement your own systems using a simple pattern.
 
 # Build, Test, Run
 
